@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* save segment button */
+.save-segment-btn {
+  background-color: #34ebb7; 
+  color: black;
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+}
+
+.save-segment-btn:hover {
+  background-color: #5ec5eb;
+}
+
+.save-segment-btn {
+  position: absolute;
+  top: 30px; /* Distance from the top of the page */
+  left: 30px; /* Distance from the left of the page */
+}
+
+/* click on the button background blur */
+.blur-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px); /* Adjust the blur amount as needed */
+  z-index: 999; /* Ensure the blur layer is behind the dialog */
+}
+
+
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  margin : 0 !important;
+  max-height: 100% !important; 
+  border-radius: 0 !important;
+}
+
+.css-uhb5lp {
+  margin : 0 !important;
+  max-height: 100% !important; 
+  border-radius: 0 !important;
+}
