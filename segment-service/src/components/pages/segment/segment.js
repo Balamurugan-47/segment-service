@@ -66,7 +66,35 @@ export default function SegmentComponent() {
   };
 
   //webhook response after save
-  const handleSaveButtonClick = async () => {
+  // const handleSaveButtonClick = async () => {
+  //   try {
+  //     const requestData = {
+  //       segment_name: segmentName,
+  //       schema: schemas.map((schema) => {
+  //         const responseSchemaValue = schema.options.length === 0 ? schema.name : schema.options[schema.options.length - 1];
+  //         const responseSchemaKey = availableOptions.find((option) => option.label === responseSchemaValue);
+  //         return {
+  //           [responseSchemaKey ? responseSchemaKey.value : schema.name.toLowerCase().replace(' ', '_')]: responseSchemaValue,
+  //         };
+  //       }),
+  //     };
+  //     //Send JSON Data to server(webhook.site unique url)
+  //     const response = await axios.post('https://webhook.site/17c16dc1-7b80-4fd0-8bd4-90e639dff20b', requestData);
+  //     console.log('Server response:', response.data);
+  //     setAlertMsg({
+  //       ...alertMsg,
+  //       openAlert: true, message: "Segement Saved Successfully! Kindly Check the response in the webhook site URL.", severity: "success"
+  //     })
+
+  //     setOpen(false);
+  //     resetState();
+  //   } catch (error) {
+  //     console.error('Error sending data to server:', error);
+  //     catchError(error);
+  //   }
+  // };
+
+  const handleSaveButtonClick = () => {
     try {
       const requestData = {
         segment_name: segmentName,
@@ -78,18 +106,21 @@ export default function SegmentComponent() {
           };
         }),
       };
-      //Send JSON Data to server(webhook.site unique url)
-      const response = await axios.post('https://webhook.site/17c16dc1-7b80-4fd0-8bd4-90e639dff20b', requestData);
-      console.log('Server response:', response.data);
+      // Convert requestData to a string for display in the alert
+      const requestDataString = JSON.stringify(requestData, null, 2);
+      alert(requestDataString); // Show the requestData in an alert dialog
+  
       setAlertMsg({
         ...alertMsg,
-        openAlert: true, message: "Segement Saved Successfully! Kindly Check the response in the webhook site URL.", severity: "success"
-      })
-
+        openAlert: true,
+        message: "Segment data displayed in alert!",
+        severity: "success",
+      });
+  
       setOpen(false);
       resetState();
     } catch (error) {
-      console.error('Error sending data to server:', error);
+      console.error('Error processing data:', error);
       catchError(error);
     }
   };
